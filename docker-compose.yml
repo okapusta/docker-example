@@ -2,8 +2,6 @@ version: "3.7"
 services:
   app:
     image: docker-example
-    ports:
-      - "9292:9292"
     volumes:
       - ./app:/app
   web:

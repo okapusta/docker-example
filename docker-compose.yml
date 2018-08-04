@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  app:
+    image: docker-example
+    ports:
+      - "9292:9292"
+    volumes:
+      - ./app:/app
+  web:
+    image: nginx
+    ports:
+      - "8888:80"
+    links:
+      - app
+    depends_on:
+      - app
+    volumes:
+      - ./config/hello_world.conf:/etc/nginx/conf.d/default.conf
